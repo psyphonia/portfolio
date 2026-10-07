@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>devansh gandotra neog &bull; personal website</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="images/home.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata" />
+<link rel="stylesheet" href="system7.css">
+<link rel="stylesheet" href="c_index.css">
+<style>
+  /* Custom additions to blend portfolio content with System 7 template */
+  @font-face {
+    font-family: "Krungthep";
+    src: url("fonts/ChicagoFLF.ttf");
+  }
+  
+  .sys7-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+  
+  .sys7-modal-overlay.active {
+    display: flex;
+  }
+
+  .sys7-dialog {
+    position: relative;
+    max-width: 680px;
+    width: 100%;
+    max-height: 88vh;
+    background: #ffffff;
+    border: 2px solid #000000;
+    box-shadow: 4px 4px 0 #000000;
+    font-family: "Inconsolata", monospace;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .sys7-dialog-body {
+    padding: 16px 20px;
+    overflow-y: auto;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: #000000;
+  }
+
+  .sys7-dialog-body h2 {
+    font-family: "Krungthep", monospace;
+    font-size: 1.25rem;
+    margin: 0 0 10px 0;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 4px;
+  }
+
+  .sys7-dialog-body h3 {
+    font-size: 1.05rem;
+    margin: 14px 0 4px 0;
+  }
+
+  .sys7-tag {
+    display: inline-block;
+    border: 1px solid #000000;
+    padding: 1px 6px;
+    font-size: 0.78rem;
+    margin: 2px 4px 2px 0;
+    background: #eeeeee;
+  }
+
+  .sys7-badge {
+    display: inline-block;
+    padding: 1px 6px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border: 1px solid #000000;
+  }
+  .sys7-badge-finished { background: #d4edda; color: #155724; }
+  .sys7-badge-progress { background: #fff3cd; color: #856404; }
+  .sys7-badge-experiment { background: #e2d9f3; color: #381577; }
+
+  .status-line {
+    font-family: "Inconsolata", monospace;
+    font-size: 0.85rem;
+    background: #000000;
+    color: #00ff66;
+    padding: 8px 10px;
+    border: 1px solid #000000;
+    overflow-x: auto;
+    white-space: pre-wrap;
+  }
+
+  .grid-item {
+    cursor: pointer;
+  }
+
+  .grid-item a {
+    cursor: pointer;
+  }
+
+  .grid-item:hover img {
+    transform: scale(1.08);
+    transition: transform 0.1s ease;
+  }
+</style>
+</head>
+<body>
+
+<!-- System 7 Top Menu Bar -->
+<header class="header">
+  <input type="checkbox" id="menu-toggle" class="menu-btn" />
+  <label for="menu-toggle" class="menu-icon"> <span class="menu-text">menu</span> </label>
+  <ul class="menu">
+    <li class="menu-deco">&#127744;</li>
+    <li><a href="javascript:void(0)" onclick="openModal('about-modal')">About</a></li>
+    <li><a href="javascript:void(0)" onclick="openModal('projects-modal')">Projects</a></li>
+    <li><a href="javascript:void(0)" onclick="openModal('education-modal')">Education</a></li>
+    <li><a href="javascript:void(0)" onclick="openModal('achievements-modal')">Achievements</a></li>
+    <li><a href="javascript:void(0)" onclick="openModal('interests-modal')">Interests</a></li>
+    <li><a href="javascript:void(0)" onclick="openModal('skills-modal')">Skills</a></li>
+    <li><a href="javascript:void(0)" onclick="openModal('contact-modal')">Contact</a></li>
+    <li><a href="resume.html">Resume.txt</a></li>
+    <li><a href="https://neocities.org/site/altalenae" target="_blank" rel="noopener noreferrer">Neocities</a></li>
+  </ul>
+</header>
+
+<div class="wrapper">
+  <div class="holy-grail-grid">
+    
+    <!-- Left Sidebar -->
+    <section class="left-sidebar">
+      
+      <!-- Bio / Intro Window -->
+      <div class="window" id="info">
+        <div class="title-bar">
+          <button class="close" aria-label="Close" onclick="closeWindow('info')"></button>
+          <h1 class="title">Hello!</h1>
+          <button class="resize" aria-label="Resize"></button>
+        </div>
+        <div class="separator"></div>
+        <p>welcome to <strong>devansh's workstation</strong>!</p>
+        <p>i am an AI student &amp; developer at <strong>The University of Western Australia</strong> (UWA). i build ambitious software and explore artificial intelligence, systems, and mathematics from first principles.</p>
+        <p>- devansh gandotra neog</p>
+      </div>
+
+      <!-- Diagram / Hypertext Window -->
+      <div class="window" id="hyper">
+        <div class="title-bar">
+          <button class="close" aria-label="Close" onclick="closeWindow('hyper')"></button>
+          <h1 class="title"></h1>
+          <button class="resize" aria-label="Resize"></button>
+        </div>
+        <div class="separator"></div>
+        <div class="details">
+          <p>Schema: <a href="javascript:void(0)" onclick="openModal('autograd-modal')"><em>Autograd DAG &amp; Chain Rule</em></a></p>
+        </div>
+        <img src="images/hypertext.jpg" alt="Drawing of white cards connected by black arrows representing computational graph DAG.">
+      </div>
+
+      <!-- Updates Log Window -->
+      <div class="window" id="updates-window">
+        <div class="title-bar">
+          <button aria-label="Close" class="close" onclick="closeWindow('updates-window')"></button>
+          <h1 class="title">Updates</h1>
+          <button aria-label="Resize" class="resize"></button>
+        </div>
+        <div class="separator"></div>
+        <div style="max-height: 170px; overflow: scroll;">
+          <ul id="updates">
+            <li>07.10 finished <a href="javascript:void(0)" onclick="openModal('autograd-modal')">micro-autograd engine</a></li>
+            <li>02.10 experimental <a href="javascript:void(0)" onclick="openModal('agent-modal')">AI agent tool dispatcher</a></li>
+            <li>26.09 benchmarked <a href="javascript:void(0)" onclick="openModal('graph-modal')">graph search algorithms</a></li>
+            <li>19.09 deterministic <a href="javascript:void(0)" onclick="openModal('minimax-modal')">minimax game engine</a></li>
+            <li>12.09 <a href="javascript:void(0)" onclick="openModal('achievements-modal')">IOQM Olympiad</a> mathematics notes</li>
+            <li>28.08 <a href="javascript:void(0)" onclick="openModal('tesla-modal')">tesla coil resonance simulation</a></li>
+            <li>15.08 senior secondary distinction: 95.8%</li>
+            <li>04.08 published 3rd book milestone</li>
+            <li>20.07 joined The University of Western Australia (AI/CS)</li>
+            <li>11.07 wrote neural backprop matrix calculus notes</li>
+            <li>01.07 discrete mathematics &amp; combinatorics practice</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Area: 3D Stacked Card Deck -->
+    <main class="main-content">
+      <div class="home-card">
+        <div class="rectangle">
+
+          <div class="title-container">
+            <img src="images/home.png" alt="" class="side-image">
+            <div class="title">Devansh's Computer &amp; Files</div>
+            <img src="images/home.png" alt="" class="side-image">
+          </div>
+
+          <!-- Interactive Desktop Icons Grid -->
+          <div class="grid-container">
+
+            <!-- Card 1: About Me -->
+            <div class="grid-item" onclick="openModal('about-modal')">
+              <img src="images/bookshelf.png" alt="About">
+              <p><a href="javascript:void(0)">About</a></p>
+            </div>
+
+            <!-- Card 2: Projects Overview -->
+            <div class="grid-item" onclick="openModal('projects-modal')">
+              <img src="images/depot.png" alt="Projects">
+              <p><a href="javascript:void(0)">Projects</a></p>
+            </div>
+
+            <!-- Card 3: MicroAutograd Engine -->
+            <div class="grid-item" onclick="openModal('autograd-modal')">
+              <img src="images/HC4.png" alt="MicroAutograd">
+              <p><a href="javascript:void(0)">Autograd</a></p>
+            </div>
+
+            <!-- Card 4: AI Reasoning Agent -->
+            <div class="grid-item" onclick="openModal('agent-modal')">
+              <img src="images/Communication36.png" alt="AI Agent">
+              <p><a href="javascript:void(0)">AI Agent</a></p>
+            </div>
+
+            <!-- Card 5: Graph Search Visualizer -->
+            <div class="grid-item" onclick="openModal('graph-modal')">
+              <img src="images/19.png" alt="Graph Search">
+              <p><a href="javascript:void(0)">Graph A*</a></p>
+            </div>
+
+            <!-- Card 6: Minimax Game Engine -->
+            <div class="grid-item" onclick="openModal('minimax-modal')">
+              <img src="images/81.png" alt="Minimax Engine">
+              <p><a href="javascript:void(0)">Minimax</a></p>
+            </div>
+
+            <!-- Card 7: Tesla Coil Resonance Physics -->
+            <div class="grid-item" onclick="openModal('tesla-modal')">
+              <img src="images/87.png" alt="Tesla Coil">
+              <p><a href="javascript:void(0)">Tesla Coil</a></p>
+            </div>
+
+            <!-- Card 8: Education -->
+            <div class="grid-item" onclick="openModal('education-modal')">
+              <img src="images/100.png" alt="Education">
+              <p><a href="javascript:void(0)">Education</a></p>
+            </div>
+
+            <!-- Card 9: Honors & Achievements -->
+            <div class="grid-item" onclick="openModal('achievements-modal')">
+              <img src="images/107.png" alt="Achievements">
+              <p><a href="javascript:void(0)">Honors</a></p>
+            </div>
+
+            <!-- Card 10: Interests -->
+            <div class="grid-item" onclick="openModal('interests-modal')">
+              <img src="images/195.png" alt="Interests">
+              <p><a href="javascript:void(0)">Interests</a></p>
+            </div>
+
+            <!-- Card 11: Skills -->
+            <div class="grid-item" onclick="openModal('skills-modal')">
+              <img src="images/99.png" alt="Skills">
+              <p><a href="javascript:void(0)">Skills</a></p>
+            </div>
+
+            <!-- Card 12: Contact -->
+            <div class="grid-item" onclick="openModal('contact-modal')">
+              <img src="images/Communication48.png" alt="Contact">
+              <p><a href="javascript:void(0)">Contact</a></p>
+            </div>
+
+            <!-- Card 13: Academic Paper Indexer -->
+            <div class="grid-item" onclick="openModal('indexer-modal')">
+              <img src="images/HC4.png" alt="Paper Indexer">
+              <p><a href="javascript:void(0)">Indexer</a></p>
+            </div>
+
+            <!-- Card 14: Three Books Authorship -->
+            <div class="grid-item" onclick="openModal('books-modal')">
+              <img src="images/bookshelf.png" alt="Books">
+              <p><a href="javascript:void(0)">3 Books</a></p>
+            </div>
+
+            <!-- Card 15: Mathematics (IOQM) -->
+            <div class="grid-item" onclick="openModal('math-modal')">
+              <img src="images/100.png" alt="Mathematics">
+              <p><a href="javascript:void(0)">Math IOQM</a></p>
+            </div>
+
+            <!-- Card 16: Piano & Music -->
+            <div class="grid-item" onclick="openModal('piano-modal')">
+              <img src="images/19.png" alt="Piano">
+              <p><a href="javascript:void(0)">Piano</a></p>
+            </div>
+
+            <!-- Card 17: Systems Programming -->
+            <div class="grid-item" onclick="openModal('systems-modal')">
+              <img src="images/99.png" alt="Systems">
+              <p><a href="javascript:void(0)">Systems</a></p>
+            </div>
+
+            <!-- Card 18: Resume / CV -->
+            <div class="grid-item" onclick="window.location.href='resume.html'">
+              <img src="images/depot.png" alt="Resume">
+              <p><a href="resume.html">Resume.txt</a></p>
+            </div>
+
+          </div>
+
+          <!-- Pagination Arrows -->
+          <div class="arrow-container">
+            <button id="prevPage" aria-label="Previous page">
+              <img src="images/173.png" alt="Previous">
+            </button>
+
+            <span id="pageIndicator">1/1</span>
+
+            <button id="nextPage" aria-label="Next page">
+              <img src="images/172.png" alt="Next">
+            </button>
+          </div>
+
+        </div>
+
+        <div class="rectangle rect1"></div>
+        <div class="rectangle rect2"></div>
+        <div class="rectangle rect3"></div>
+      </div>
+
+      <!-- Retro 88x31 Buttons Bar -->
+      <div class="buttons">
+        <a href="https://neocities.org/" target="_blank"><img src="images/neo.gif" alt="Neocities the web is yours."></a>
+        <img src="images/css2.gif" alt="Made with cascading style sheets.">
+        <img src="images/html3.webp" alt="HTML3 valid.">
+        <img src="images/bestviewed16bit.gif" alt="Best viewed 1024x768 16bit color.">
+        <a href="https://archive.org/" target="_blank"><img src="images/internetarchive.gif" alt="Internet Archive."></a>
+      </div>
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside class="right-sidebar">
+      
+      <!-- Scientific Schema / Diagram -->
+      <div class="window" id="lab">
+        <div class="title-bar">
+          <button class="close" aria-label="Close" onclick="closeWindow('lab')"></button>
+          <h1 class="title"></h1>
+          <button class="resize" aria-label="Resize"></button>
+        </div>
+        <div class="separator"></div>
+        <div class="details">
+          <p>Geometry: <em>Algorithmic Graph Topologies</em></p>
+        </div>
+        <img src="images/labyrinths.jpg" alt="Drawing of four ancient labyrinth symbols.">
+      </div>
+
+      <!-- Physics / Tesla Resonance -->
+      <div class="window" id="osage">
+        <div class="title-bar">
+          <button class="close" aria-label="Close" onclick="closeWindow('osage')"></button>
+          <h1 class="title"></h1>
+          <button class="resize" aria-label="Resize"></button>
+        </div>
+        <div class="separator"></div>
+        <div class="details">
+          <p>Physics: <em>Resonant Coil &amp; LC Tank Geometry</em></p>
+        </div>
+        <img src="images/cradle.jpg" alt="Drawing of hands in cat's cradle position.">
+      </div>
+
+      <!-- Tech Stack / System Info -->
+      <div class="window rings" id="todo-window">
+        <div class="title-bar">
+          <button aria-label="Close" class="close" onclick="closeWindow('todo-window')"></button>
+          <h1 class="title">Stack &amp; Specs</h1>
+          <button aria-label="Resize" class="resize"></button>
+        </div>
+        <div class="separator"></div>
+        <div style="padding: 10px; font-size: 0.85rem; line-height: 1.45;">
+          <p><strong>Devansh's Environment:</strong></p>
+          <p>&bull; <strong>OS:</strong> Linux / System 7</p>
+          <p>&bull; <strong>Languages:</strong> Python, C++, JS, SQL</p>
+          <p>&bull; <strong>Math:</strong> Linear Algebra, Calculus, IOQM</p>
+          <p>&bull; <strong>Focus:</strong> Neural Autograd, AI Agents</p>
+          <p>&bull; <strong>Hardware:</strong> Tesla Coil LC Resonator</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Footer: Terminal Status -->
+    <footer class="footer">
+      <div class="window" id="status">
+        <div class="title-bar">
+          <button aria-label="Close" class="close"></button>
+          <h1 class="title">Terminal Status</h1>
+          <button aria-label="Resize" class="resize"></button>
+        </div>
+        <div class="separator"></div>
+        <div style="padding: 8px 12px; font-size: 0.85rem;">
+          <div class="status-line">devansh@uwa-sys7:~$ python3 train.py
+[STATUS] MicroAutograd DAG compiled. Loss = 0.0014.
+[NOW] Listening to Bach on piano &amp; building autonomous agents.</div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+<!-- ================= SYSTEM 7 MODAL DIALOGS ================= -->
+
+<!-- 1. ABOUT MODAL -->
+<div id="about-modal" class="sys7-modal-overlay">
+  <div class="sys7-dialog">
+    <div class="title-bar">
+      <button class="close" aria-label="Close" onclick="closeModal('about-modal')"></button>
+      <h1 class="title">About Devansh.txt</h1>
+      <button class="resize" aria-label="Resize"></button>
+    </div>
+    <div class="separator"></div>
+    <div class="sys7-dialog-body">
+      <h2>Devansh Gandotra Neog</h2>
+      <p><strong>AI Student &amp; Developer &bull; The University of Western Australia (UWA)</strong></p>
+      <p>My interest in computer science started with a natural fascination for mathematics and physics. Early on, I was drawn to the rigor of competitive math—analyzing problems down to their fundamental rules rather than just applying formulas. At the same time, building physical experiments (such as high-voltage resonant transformers) taught me the joy of getting my hands dirty and seeing abstract laws of nature come alive.</p>
+      <p>Programming quickly became the ultimate intersection of both: a medium where mathematical ideas could run as living machines. What excites me most about artificial intelligence is not merely consuming pre-trained models via an API, but peeling back the layers to see how statistical learning, matrix operations, and search heuristics create emergent reasoning.</p>
+      <p>I prefer depth over superficial familiarity. When I study a data structure, an optimization method, or a neural network architecture, my default instinct is to write a minimal implementation from scratch before adopting higher-level libraries. I consider myself a student in the truest sense: eager to be challenged, constantly reading, writing code daily, and building ambitious projects that stretch my understanding.</p>
+      <p>Beyond computing, I have authored three published books, play the piano, and explore scientific history. These interests keep my thinking grounded and remind me that software is ultimately an intellectual craft created by curious human minds.</p>
+      <p><a href="javascript:void(0)" onclick="closeModal('about-modal')">[Click to Close Window]</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- 2. PROJECTS MODAL -->
+<div id="projects-modal" class="sys7-modal-overlay">
+  <div class="sys7-dialog">
+    <div class="title-bar">
+      <button class="close" aria-label="Close" onclick="closeModal('projects-modal')"></button>
+      <h1 class="title">Selected Projects Catalog</h1>
+      <button class="resize" aria-label="Resize"></button>
+    </div>
+    <div class="separator"></div>
+    <div class="sys7-dialog-body">
+      <h2>Selected Software &amp; Research Projects</h2>
+
+      <!-- P1 -->
+      <h3>1. MicroAutograd Engine &amp; Neural Library <span class="sys7-badge sys7-badge-finished">Finished (2025)</span></h3>
+      <p>A lightweight scalar automatic differentiation engine and neural network library built purely in Python and NumPy with zero black-box dependencies. Implements a dynamically constructed directed acyclic graph (DAG) for reverse-mode automatic differentiation and backpropagation.</p>
+      <p>
+        <span class="sys7-tag">Python</span>
+        <span class="sys7-tag">NumPy</span>
+        <span class="sys7-tag">DAG</span>
+        <span class="sys7-tag">Calculus</span>
+        &bull; <a href="https://github.com/devansh-neog/micro-neural-autograd" target="_blank">[GitHub Code &rarr;]</a>
+      </p>
+
+      <hr>
+
+      <!-- P2 -->
+      <h3>2. Autonomous Reasoning AI Agent <span class="sys7-badge sys7-badge-progress">In Progress (2026)</span></h3>
+      <p>An experimental autonomous agent architecture designed for multi-step algorithmic reasoning and programmatic tool execution. Features explicit chain-of-thought scratchpads, local tool schema validation, stateful working memory, and graceful error backtracking.</p>
+      <p>
+        <span class="sys7-tag">Python</span>
+        <span class="sys7-tag">AsyncIO</span>
+        <span class="sys7-tag">LLM APIs</span>
+        <span class="sys7-tag">Pydantic</span>
+        &bull; <a href="https://github.com/devansh-neog/autonomous-research-agent" target="_blank">[GitHub Code &rarr;]</a>
+      </p>
+
+      <hr>
+
+      <!-- P3 -->
+      <h3>3. Graph Search &amp; Pathfinding Engine <span class="sys7-badge sys7-badge-finished">Finished (2025)</span></h3>
+      <p>Benchmarking and visualization suite for Dijkstra, A* (Manhattan, Euclidean heuristics), Bidirectional BFS, and Greedy Search with step-by-step frontier state logging and space-time complexity analysis.</p>
+      <p>
+        <span class="sys7-tag">Python</span>
+        <span class="sys7-tag">C++</span>
+        <span class="sys7-tag">Priority Queues</span>
+        &bull; <a href="https://github.com/devansh-neog/graph-search-visualizer" target="_blank">[GitHub Code &rarr;]</a>
+      </p>
+
+      <hr>
+
+      <!-- P4 -->
+      <h3>4. Adversarial Minimax Game Engine <span class="sys7-badge sys7-badge-finished">Finished (2024)</span></h3>
+      <p>Deterministic two-player game engine implementing Minimax with Alpha-Beta pruning, iterative deepening, and transposition tables with custom evaluation heuristics.</p>
+      <p>
+        <span class="sys7-tag">Python</span>
+        <span class="sys7-tag">Game Theory</span>
+        <span class="sys7-tag">Bitboards</span>
+        &bull; <a href="https://github.com/devansh-neog/minimax-adversarial-search" target="_blank">[GitHub Code &rarr;]</a>
+      </p>
+
+      <hr>
+
+      <!-- P5 -->
+      <h3>5. Electromagnetic Tesla Coil Simulator <span class="sys7-badge sys7-badge-experiment">Experimental (2024)</span></h3>
+      <p>Computational physics simulation modeling secondary coil self-capacitance (Medhurst formula), mutual inductance, and resonant frequency tuning for high-voltage LC circuits.</p>
+      <p>
+        <span class="sys7-tag">Python</span>
+        <span class="sys7-tag">SciPy</span>
+        <span class="sys7-tag">Electromagnetism</span>
+        &bull; <a href="https://github.com/devansh-neog/tesla-coil-resonance-sim" target="_blank">[GitHub Code &rarr;]</a>
+      </p>
+
+      <p><a href="javascript:void(0)" onclick="closeModal('projects-modal')">[Click to Close Window]</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- 3. AUTOGRAD MODAL -->
+<div id="autograd-modal" class="sys7-modal-overlay">
+  <div class="sys7-dialog">
+    <div class="title-bar">
+      <button class="close" aria-label="Close" onclick="closeModal('autograd-modal')"></button>
+      <h1 class="title">MicroAutograd Engine Details</h1>
+      <button class="resize" aria-label="Resize"></button>
+    </div>
+    <div class="separator"></div>
+    <div class="sys7-dialog-body">
+      <h2>MicroAutograd: Reverse-Mode Differentiation</h2>
+      <p><strong>Goal:</strong> Implement automatic differentiation and backpropagation from scratch in Python to thoroughly understand computational graphs without black-box abstractions.</p>
+      <h3>Core Mechanisms:</h3>
+      <p>1. <strong>Value Node:</strong> Every scalar value is an instance of <code>Value(data, _children, _op)</code> holding its numerical value and its accumulated gradient (<code>grad</code>).</p>
+      <p>2. <strong>DAG Construction:</strong> Overloaded arithmetic operators (<code>+</code>, <code>*</code>, <code>pow</code>, <code>tanh</code>, <code>relu</code>) automatically record parents and local derivative closures.</p>
+      <p>3. <strong>Topological Sort:</strong> Backpropagation traverses the computation DAG in reverse topological order, recursively applying the chain rule: <code>child.grad += local_deriv * parent.grad</code>.</p>
+      <p>4. <strong>MLP Training:</strong> Trains a multi-layer perceptron with arbitrary hidden layers on binary classification datasets.</p>
+      <p><a href="https://github.com/devansh-neog/micro-neural-autograd" target="_blank">[Inspect GitHub Repository &rarr;]</a></p>
+      <p><a href="javascript:void(0)" onclick="closeModal('autograd-modal')">[Close Window]</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- 4. AI AGENT MODAL -->
+<div id="agent-modal" class="sys7-modal-overlay">
+  <div class="sys7-dialog">
+    <div class="title-bar">
+      <button class="close" aria-label="Close" onclick="closeModal('agent-modal')"></button>
+      <h1 class="title">Autonomous AI Agent Architecture</h1>
+      <button class="resize" aria-label="Resize"></button>
+    </div>
+    <div class="separator"></div>
+    <div class="sys7-dialog-body">
+      <h2>Autonomous Reasoning &amp; Tool Dispatcher</h2>
+      <p><strong>Concept:</strong> Moving beyond single-turn prompt-response architectures toward deterministic planning and autonomous self-correction.</p>
+      <p>&bull; <strong>Deductive Scratchpad:</strong> Explicit chain-of-thought buffer that isolates internal planning hypotheses from final output generation.</p>
+      <p>&bull; <strong>Strict Tool Schemas:</strong> JSON Schema validated tool calling (file reader, shell execution, web lookup) with Pydantic validation.</p>
+      <p>&bull; <strong>Backtracking Engine:</strong> Catches tool failures, passes error traces back into the reasoning loop, and re-plans alternative branches.</p>
+      <p><a href="https://github.com/devansh-neog/autonomous-research-agent" target="_blank">[View Code on GitHub &rarr;]</a></p>
+      <p><a href="javascript:void(0)" onclick="closeModal('agent-modal')">[Close Window]</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- 5. GRAPH MODAL -->
+<div id="graph-modal" class="sys7-modal-overlay">
+  <div class="sys7-dialog">
+    <div class="title-bar">
+      <button class="close" aria-label="Close" onclick="closeModal('graph-modal')"></button>
+      <h1 class="title">Graph Search Visualizer</h1>
+      <button class="resize" aria-label="Resize"></button>
+    </div>
+    <div class="separator"></div>
+    <div class="sys7-dialog-body">
+      <h2>Graph Search &amp; Pathfinding Engine</h2>
+      <p>Algorithmic implementations of classical pathfinding algorithms on 2D grid meshes and weighted graphs.</p>
+      <p>&bull; <strong>Algorithms:</strong> Dijkstra's Shortest Path, A* (Manhattan / Euclidean heuristics), Bidirectional Breadth-First Search, Greedy Best-First Search.</p>
+      <p>&bull; <strong>Complexity Analysis:</strong> Measures nodes explored, frontier queue operations, and execution time under varying maze density.</p>
+      <p><a href="https://github.com/devansh-neog/graph-search-visualizer" target="_blank">[GitHub Repository]</a></p>
+      <p><a href="javascript:void(0)" onclick="closeModal('graph-modal')">[Close Window]</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- 6. MINIMAX MODAL -->
+<div id="minimax-modal" class="sys7-modal-overlay">
+  <div class="sys7-dialog">
+    <div class="title-bar">
+      <button class="close" aria-label="Close" onclick="closeModal('minimax-modal')"></button>
+      <h1 class="title">Minimax Adversarial Search</h1>
+      <button class="resize" aria-label="Resize"></button>
+    </div>
+    <div class="separator"></div>
+    <div class="sys7-dialog-body">
+      <h2>Adversarial Game Engine with Alpha-Beta Pruning</h2>
+      <p>Deterministic two-player game engine implementing game-theoretic tree search.</p>
+      <p>&bull; Alpha-Beta pruning to prune suboptimal branches in exponential game trees.</p>
+      <p>&bull; Iterative deepening to respect real-time decision deadlines.</p>
+      <p>&bull; Transposition tables with Zobrist hashing for caching evaluated subtrees.</p>
+      <p><a href="https://github.com/devansh-neog/minimax-adversarial-search" target="_blank">[GitHub Code &rarr;]</a></p>
+      <p><a href="javascript:void(0)" onclick="closeModal('minimax-modal')">[Close Window]</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- 7. TESLA COIL MODAL -->
+<div id="tesla-modal" class="sys7-modal-overlay">
+  <div class="sys7-dialog">
+    <div class="title-bar">
+      <button class="close" aria-label="Close" onclick="closeModal('tesla-modal')"></button>
+      <h1 class="title">Tesla Coil Physics &amp; Build</h1>
+      <button class="resize" aria-label="Resize"></button>
+    </div>
+    <div class="separator"></div>
+    <div class="sys7-dialog-body">
+      <h2>High-Voltage Resonant Transformer Build &amp; Simulation</h2>
+      <p><strong>1st Place Winner &mdash; Engineering &amp; Physics Showcase</strong></p>
+      <p>Engineered and tuned an operational spark-gap Tesla coil from fundamental components. Calculated secondary coil self-capacitance using the Medhurst formula, hand-wound 900+ turns of enameled magnet wire on a precision PVC cylinder, and matched primary tank capacitor LC resonance (<code>f = 1 / (2&pi;&radic;(LC))</code>) to produce high-frequency wireless electromagnetic discharges.</p>
+      <p>Also wrote a Python simulation (SciPy) modeling resonant frequencies, spark threshold potentials, and RF induction fields.</p>
+      <p><a href="https://github.com/devansh-neog/tesla-coil-resonance-sim" target="_blank">[Simulation Source Code &rarr;]</a></p>
+      <p><a href="javascript:void(0)" onclick="closeModal('tesla-modal')">[Close Window]</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- 8. EDUCATION MODAL -->
+<div id="education-modal" class="sys7-modal-overlay">
+  <div class="sys7-dialog">
+    <div class="title-bar">
+      <button class="close" aria-label="Close" onclick="closeModal('education-modal')"></button>
+      <h1 class="title">Education.txt</h1>
+      <button class="resize" aria-label="Resize"></button>
+    </div>
+    <div class="separator"></div>
+    <div class="sys7-dialog-body">
+      <h2>Academic Timeline</h2>
+      <h3>1. The University of Western Australia (UWA)</h3>
+      <p><strong>Undergraduate Studies &bull; Artificial Intelligence &amp; Computer Science</strong> <em>(Current)</em></p>
+      <p>Focusing on algorithmic foundations, data structures, machine learning fundamentals, software architecture, and discrete mathematics.</p>
+
+      <h3>2. Senior Secondary School (Grade 12)</h3>
+      <p><strong>Science &amp; Mathematics Stream &bull; 95.8% Aggregate Score</strong></p>
+      <p>Advanced coursework in Pure Mathematics, Physics, Chemistry, and Computer Science.</p>
+
+      <h3>3. Secondary School (Grade 10)</h3>
+      <p><strong>94.8% Aggregate Score</strong> &bull; School distinction across core STEM disciplines.</p>
+
+      <p><a href="javascript:void(0)" onclick="closeModal('education-modal')">[Close Window]</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- 9. ACHIEVEMENTS MODAL -->
+<div id="achievements-modal" class="sys7-modal-overlay">
+  <div class="sys7-dialog">
+    <div class="title-bar">
+      <button class="close" aria-label="Close" onclick="closeModal('achievements-modal')"></button>
+      <h1 class="title">Honors &amp; Achievements</h1>
+      <button class="resize" aria-label="Resize"></button>
+    </div>
+    <div class="separator"></div>
+    <div class="sys7-dialog-body">
+      <h2>Honors &amp; Milestones</h2>
+      <p>&bull; <strong>IOQM Qualified:</strong> Cleared the Indian Olympiad Qualifier in Mathematics, a prestigious national math competition testing proof-based combinatorics, number theory, geometry, and algebra.</p>
+      <p>&bull; <strong>Tesla Coil Competition &mdash; 1st Place:</strong> First place in physics/engineering competition for designing and tuning a high-voltage resonant transformer.</p>
+      <p>&bull; <strong>Authored Three Books:</strong> Published three original books spanning narrative storytelling and thematic works.</p>
+      <p>&bull; <strong>Grade 12 Distinction:</strong> 95.8% aggregate in Senior Secondary STEM curriculum.</p>
+      <p>&bull; <strong>Grade 10 Distinction:</strong> 94.8% aggregate in Secondary curriculum.</p>
+      <p><a href="javascript:void(0)" onclick="closeModal('achievements-modal')">[Close Window]</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- 10. INTERESTS MODAL -->
+<div id="interests-modal" class="sys7-modal-overlay">
+  <div class="sys7-dialog">
+    <div class="title-bar">
+      <button class="close" aria-label="Close" onclick="closeModal('interests-modal')"></button>
+      <h1 class="title">Interests &amp; Pursuits</h1>
+      <button class="resize" aria-label="Resize"></button>
+    </div>
+    <div class="separator"></div>
+    <div class="sys7-dialog-body">
+      <h2>Interests Beyond Code</h2>
+      <p>&bull; <strong>Artificial Intelligence:</strong> Neural architectures, representation learning, automatic differentiation, and deterministic agents.</p>
+      <p>&bull; <strong>Computer Science &amp; Systems:</strong> Memory layout, operating systems, compilers, and hardware abstractions.</p>
+      <p>&bull; <strong>Mathematics:</strong> Discrete math, linear algebra, multivariable calculus, and olympiad problem solving.</p>
+      <p>&bull; <strong>Writing:</strong> Author of three books; passionate about disciplined long-form prose and clear communication.</p>
+      <p>&bull; <strong>Piano &amp; Classical Music:</strong> Playing piano; appreciating harmonies, deliberate practice, and musical structure.</p>
+      <p>&bull; <strong>Physics &amp; Tinkering:</strong> Resonant circuits, electromagnetism, and hands-on laboratory experimentation.</p>
+      <p><a href="javascript:void(0)" onclick="closeModal('interests-modal')">[Close Window]</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- 11. SKILLS MODAL -->
+<div id="skills-modal" class="sys7-modal-overlay">
+  <div class="sys7-dialog">
+    <div class="title-bar">
+      <button class="close" aria-label="Close" onclick="closeModal('skills-modal')"></button>
+      <h1 class="title">Technical Competencies</h1>
+      <button class="resize" aria-label="Resize"></button>
+    </div>
+    <div class="separator"></div>
+    <div class="sys7-dialog-body">
+      <h2>Technical Foundation</h2>
+      <p><strong>Programming Languages:</strong></p>
+      <p>Python (primary &bull; ML, algorithms, scripts), C/C++ (systems &amp; data structures), JavaScript, HTML5, CSS3, SQL</p>
+      <p><strong>Core Computer Science:</strong></p>
+      <p>Data Structures &amp; Algorithms, Computational Complexity (Big-O), Object-Oriented Design, Dynamic Programming</p>
+      <p><strong>Machine Learning &amp; Math:</strong></p>
+      <p>PyTorch, NumPy, Reverse-Mode Autograd, Linear Algebra, Multivariable Calculus, Discrete Math</p>
+      <p><strong>Tools &amp; Environment:</strong></p>
+      <p>Git, GitHub, Linux/Unix Terminal, VS Code, LaTeX, Shell Scripting</p>
+      <p><a href="javascript:void(0)" onclick="closeModal('skills-modal')">[Close Window]</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- 12. CONTACT MODAL -->
+<div id="contact-modal" class="sys7-modal-overlay">
+  <div class="sys7-dialog">
+    <div class="title-bar">
+      <button class="close" aria-label="Close" onclick="closeModal('contact-modal')"></button>
+      <h1 class="title">Contact Devansh</h1>
+      <button class="resize" aria-label="Resize"></button>
+    </div>
+    <div class="separator"></div>
+    <div class="sys7-dialog-body">
+      <h2>Get in Touch</h2>
+      <p>Interested in what I'm building, working together, or just talking about computer science, AI, and mathematics?</p>
+      <p>&bull; <strong>Email:</strong> <a href="mailto:devanshgandotra@gmail.com">devanshgandotra@gmail.com</a></p>
+      <p>&bull; <strong>GitHub:</strong> <a href="https://github.com/devansh-neog" target="_blank">github.com/devansh-neog</a></p>
+      <p>&bull; <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/devansh-neog" target="_blank">linkedin.com/in/devansh-neog</a></p>
+      <p>&bull; <strong>Location:</strong> Perth, Western Australia (UWA)</p>
+      <p><a href="javascript:void(0)" onclick="closeModal('contact-modal')">[Close Window]</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- 13. INDEXER MODAL -->
+<div id="indexer-modal" class="sys7-modal-overlay">
+  <div class="sys7-dialog">
+    <div class="title-bar">
+      <button class="close" aria-label="Close" onclick="closeModal('indexer-modal')"></button>
+      <h1 class="title">Academic Paper Indexer</h1>
+      <button class="resize" aria-label="Resize"></button>
+    </div>
+    <div class="separator"></div>
+    <div class="sys7-dialog-body">
+      <h2>Academic Paper &amp; Notes CLI Indexer</h2>
+      <p>A personal command-line retrieval tool for indexing AI research papers, arXiv preprints, and LaTeX study notes.</p>
+      <p>&bull; SQLite local database indexing.</p>
+      <p>&bull; Cross-reference extraction and BibTeX formatter.</p>
+      <p>&bull; TF-IDF vector similarity lookup.</p>
+      <p><a href="https://github.com/devansh-neog/academic-paper-indexer" target="_blank">[View Code on GitHub &rarr;]</a></p>
+      <p><a href="javascript:void(0)" onclick="closeModal('indexer-modal')">[Close Window]</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- 14. BOOKS MODAL -->
+<div id="books-modal" class="sys7-modal-overlay">
+  <div class="sys7-dialog">
+    <div class="title-bar">
+      <button class="close" aria-label="Close" onclick="closeModal('books-modal')"></button>
+      <h1 class="title">Authored Books</h1>
+      <button class="resize" aria-label="Resize"></button>
+    </div>
+    <div class="separator"></div>
+    <div class="sys7-dialog-body">
+      <h2>Three Published Books</h2>
+      <p>Having authored three books across fiction and thematic works, I consider writing an indispensable companion to programming.</p>
+      <p>Writing enforces disciplined thinking: stripping away unnecessary fluff, structuring complex narratives logically, and communicating ideas clearly to readers.</p>
+      <p><a href="javascript:void(0)" onclick="closeModal('books-modal')">[Close Window]</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- 15. MATH MODAL -->
+<div id="math-modal" class="sys7-modal-overlay">
+  <div class="sys7-dialog">
+    <div class="title-bar">
+      <button class="close" aria-label="Close" onclick="closeModal('math-modal')"></button>
+      <h1 class="title">Mathematics &amp; IOQM</h1>
+      <button class="resize" aria-label="Resize"></button>
+    </div>
+    <div class="separator"></div>
+    <div class="sys7-dialog-body">
+      <h2>Olympiad Mathematics (IOQM)</h2>
+      <p>Qualified the Indian Olympiad Qualifier in Mathematics (IOQM). Deeply interested in:</p>
+      <p>&bull; <strong>Combinatorics:</strong> Generating functions, graph theory, counting arguments.</p>
+      <p>&bull; <strong>Number Theory:</strong> Modular arithmetic, Diophantine equations, primes.</p>
+      <p>&bull; <strong>Linear Algebra &amp; Calculus:</strong> Eigendecomposition, gradient descent surfaces, multivariable optimization.</p>
+      <p><a href="javascript:void(0)" onclick="closeModal('math-modal')">[Close Window]</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- 16. PIANO MODAL -->
+<div id="piano-modal" class="sys7-modal-overlay">
+  <div class="sys7-dialog">
+    <div class="title-bar">
+      <button class="close" aria-label="Close" onclick="closeModal('piano-modal')"></button>
+      <h1 class="title">Piano &amp; Music</h1>
+      <button class="resize" aria-label="Resize"></button>
+    </div>
+    <div class="separator"></div>
+    <div class="sys7-dialog-body">
+      <h2>Piano &amp; Musical Craft</h2>
+      <p>Playing the piano provides a mindful counterweight to analytical programming.</p>
+      <p>It cultivates fine motor discipline, structural appreciation of polyphonic voices (especially Bach and classical repertoire), and a deep sense of rhythm that informs all creative work.</p>
+      <p><a href="javascript:void(0)" onclick="closeModal('piano-modal')">[Close Window]</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- 17. SYSTEMS MODAL -->
+<div id="systems-modal" class="sys7-modal-overlay">
+  <div class="sys7-dialog">
+    <div class="title-bar">
+      <button class="close" aria-label="Close" onclick="closeModal('systems-modal')"></button>
+      <h1 class="title">Systems &amp; Architecture</h1>
+      <button class="resize" aria-label="Resize"></button>
+    </div>
+    <div class="separator"></div>
+    <div class="sys7-dialog-body">
+      <h2>Systems Programming &amp; Architecture</h2>
+      <p>Curious about software underneath high-level abstractions:</p>
+      <p>&bull; Pointer arithmetic, stack vs. heap allocation in C/C++.</p>
+      <p>&bull; Cache hierarchies, spatial/temporal locality, SIMD vectorization.</p>
+      <p>&bull; Operating system scheduling, virtual memory, and POSIX system calls.</p>
+      <p><a href="javascript:void(0)" onclick="closeModal('systems-modal')">[Close Window]</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= JAVASCRIPT: PAGINATION & WINDOW HANDLERS ================= -->
+<script>
+// Modal open/close handlers
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+function closeWindow(windowId) {
+  const win = document.getElementById(windowId);
+  if (win) {
+    win.style.display = 'none';
+  }
+}
+
+// Close modals on overlay click or Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.sys7-modal-overlay.active').forEach((modal) => {
+      modal.classList.remove('active');
+    });
+    document.body.style.overflow = '';
+  }
+});
+
+document.querySelectorAll('.sys7-modal-overlay').forEach((overlay) => {
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+});
+
+// Exact Altalenae Grid Pagination Script
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector(".grid-container");
+  const items = Array.from(container.querySelectorAll(".grid-item"));
+
+  const prevBtn = document.getElementById("prevPage");
+  const nextBtn = document.getElementById("nextPage");
+  const pageIndicator = document.getElementById("pageIndicator");
+
+  let currentPage = 0;
+  let itemsPerPage = 12;
+
+  function getColumns() {
+    const styles = getComputedStyle(container);
+    const cols = styles.gridTemplateColumns.split(" ").length;
+    return cols > 0 ? cols : 6;
+  }
+
+  function calculateItemsPerPage() {
+    const item = items[0];
+    if (!item) return;
+
+    const cols = getColumns();
+    const containerHeight = container.clientHeight || 345;
+    const rowHeight = item.offsetHeight || 100;
+
+    let rows = Math.max(1, Math.floor(containerHeight / rowHeight));
+    itemsPerPage = rows * cols;
+    if (itemsPerPage < 6) itemsPerPage = 6;
+  }
+
+  function getMaxPage() {
+    return Math.max(0, Math.ceil(items.length / itemsPerPage) - 1);
+  }
+
+  function renderPage() {
+    const start = currentPage * itemsPerPage;
+    const end = start + itemsPerPage;
+
+    items.forEach((item, i) => {
+      item.classList.toggle("active", i >= start && i < end);
+    });
+
+    const maxPage = getMaxPage();
+    prevBtn.disabled = currentPage <= 0;
+    nextBtn.disabled = currentPage >= maxPage;
+
+    pageIndicator.textContent = `${currentPage + 1}/${maxPage + 1}`;
+  }
+
+  function nextPage() {
+    if (currentPage < getMaxPage()) {
+      currentPage++;
+      renderPage();
+    }
+  }
+
+  function prevPage() {
+    if (currentPage > 0) {
+      currentPage--;
+      renderPage();
+    }
+  }
+
+  nextBtn.addEventListener("click", nextPage);
+  prevBtn.addEventListener("click", prevPage);
+
+  window.addEventListener("resize", () => {
+    calculateItemsPerPage();
+    const maxPage = getMaxPage();
+    if (currentPage > maxPage) currentPage = maxPage;
+    renderPage();
+  });
+
+  calculateItemsPerPage();
+  renderPage();
+});
+</script>
+</body>
+</html>

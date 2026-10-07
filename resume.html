@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>resume.txt &bull; devansh gandotra neog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="images/home.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata" />
+<link rel="stylesheet" href="system7.css">
+<link rel="stylesheet" href="c_index.css">
+<style>
+  body {
+    padding-top: 2rem;
+  }
+  .resume-window {
+    max-width: 780px;
+    margin: 2rem auto;
+    background: #ffffff;
+    border: 2px solid #000000;
+    box-shadow: 4px 4px 0 #000000;
+    font-family: "Inconsolata", monospace;
+  }
+  .resume-content {
+    padding: 24px 28px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #000000;
+  }
+  .resume-header {
+    border-bottom: 2px solid #000000;
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+  }
+  .resume-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  .resume-sub {
+    font-size: 1rem;
+    color: #333333;
+    margin-top: 4px;
+  }
+  .resume-section {
+    margin-bottom: 20px;
+  }
+  .resume-section-title {
+    font-size: 1.15rem;
+    font-weight: bold;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .resume-entry-head {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-top: 8px;
+  }
+  .resume-entry-sub {
+    font-style: italic;
+    color: #444444;
+  }
+  .btn-print {
+    padding: 4px 10px;
+    background: #eeeeee;
+    border: 1px solid #000000;
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 0.85rem;
+  }
+  .btn-print:hover {
+    background: #000000;
+    color: #ffffff;
+  }
+  @media print {
+    body { background: #ffffff !important; }
+    .header, .btn-print, .close, .resize { display: none !important; }
+    .resume-window { border: none !important; box-shadow: none !important; margin: 0 !important; width: 100% !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <input type="checkbox" id="menu-toggle" class="menu-btn" />
+  <label for="menu-toggle" class="menu-icon"> <span class="menu-text">menu</span> </label>
+  <ul class="menu">
+    <li class="menu-deco">&#127744;</li>
+    <li><a href="index.html">&larr; Return to Desktop</a></li>
+    <li><a href="javascript:window.print()">[Print / PDF]</a></li>
+  </ul>
+</header>
+
+<div class="resume-window">
+  <div class="title-bar">
+    <button class="close" aria-label="Close" onclick="window.location.href='index.html'"></button>
+    <h1 class="title">Devansh_Gandotra_Neog_CV.txt</h1>
+    <button class="resize" aria-label="Resize"></button>
+  </div>
+  <div class="separator"></div>
+
+  <div class="resume-content">
+    <div class="resume-header">
+      <div style="display: flex; justify-content: space-between; align-items: baseline;">
+        <h1 class="resume-title">Devansh Gandotra Neog</h1>
+        <button class="btn-print" onclick="window.print()">Print / Save PDF</button>
+      </div>
+      <div class="resume-sub">AI Student &amp; Developer &bull; The University of Western Australia &bull; Perth, WA</div>
+      <div style="margin-top: 6px; font-size: 0.88rem;">
+        Email: <a href="mailto:devanshgandotra@gmail.com">devanshgandotra@gmail.com</a> &bull;
+        GitHub: <a href="https://github.com/devansh-neog" target="_blank">github.com/devansh-neog</a> &bull;
+        LinkedIn: <a href="https://linkedin.com/in/devansh-neog" target="_blank">linkedin.com/in/devansh-neog</a>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="resume-section">
+      <div class="resume-section-title">Education</div>
+      <div class="resume-entry-head">
+        <span>The University of Western Australia (UWA)</span>
+        <span>Present</span>
+      </div>
+      <div class="resume-entry-sub">Bachelor of Science &mdash; Artificial Intelligence &amp; Computer Science</div>
+      <p style="margin-top: 4px;">Coursework in Algorithms, Machine Learning Foundations, Data Structures, Discrete Mathematics, Linear Algebra.</p>
+
+      <div class="resume-entry-head">
+        <span>Senior Secondary School (Grade 12)</span>
+        <span>95.8% Aggregate Score</span>
+      </div>
+      <div class="resume-entry-sub">Science &amp; Mathematics Stream (Distinction)</div>
+
+      <div class="resume-entry-head">
+        <span>Secondary School (Grade 10)</span>
+        <span>94.8% Aggregate Score</span>
+      </div>
+    </div>
+
+    <!-- Honors -->
+    <div class="resume-section">
+      <div class="resume-section-title">Honors &amp; Achievements</div>
+      <p>&bull; <strong>Indian Olympiad Qualifier in Mathematics (IOQM):</strong> Qualified the national Olympiad examination testing number theory, combinatorics, and geometry.</p>
+      <p>&bull; <strong>Tesla Coil Competition &mdash; 1st Place:</strong> Engineered and tuned a working high-voltage resonant transformer; modeled LC resonant circuits.</p>
+      <p>&bull; <strong>Authored Three Published Books:</strong> Conceived, wrote, and published three books across narrative fiction and thematic works.</p>
+    </div>
+
+    <!-- Technical Projects -->
+    <div class="resume-section">
+      <div class="resume-section-title">Selected Projects</div>
+      <p><strong>1. MicroAutograd Engine &amp; Neural Library (Python, NumPy):</strong> Built reverse-mode automatic differentiation engine from scratch. Implemented computational DAG traversal, topological sorting, and backprop for training MLPs.</p>
+      <p><strong>2. Autonomous Reasoning AI Agent (Python, AsyncIO, LLM APIs):</strong> Multi-step autonomous system with chain-of-thought scratchpad, schema-validated tool calling, and error backtracking.</p>
+      <p><strong>3. Graph Search Algorithmic Engine (Python, C++):</strong> Benchmarked Dijkstra, A*, and Bidirectional BFS with space-time complexity analysis.</p>
+      <p><strong>4. Minimax Adversarial Game Engine (Python):</strong> Deterministic two-player game engine using Minimax with Alpha-Beta pruning and transposition caching.</p>
+      <p><strong>5. Electromagnetic Resonance Simulator (Python, SciPy):</strong> Modeled secondary coil self-capacitance (Medhurst formula) and spark gap discharge dynamics.</p>
+    </div>
+
+    <!-- Technical Skills -->
+    <div class="resume-section">
+      <div class="resume-section-title">Technical Skills</div>
+      <p><strong>Languages:</strong> Python, C, C++, JavaScript, SQL, HTML5, CSS3</p>
+      <p><strong>Core Topics:</strong> Data Structures &amp; Algorithms, Linear Algebra, Multivariable Calculus, Reverse-Mode Autograd</p>
+      <p><strong>Tools:</strong> Git, GitHub, Linux/Unix CLI, VS Code, NumPy, PyTorch, LaTeX</p>
+    </div>
+
+    <div style="border-top: 1px dashed #888888; padding-top: 10px; font-size: 0.8rem; color: #555555;">
+      [EOF] Devansh Gandotra Neog &bull; <a href="index.html">&larr; Return to Workstation Desktop</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
