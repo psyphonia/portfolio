@@ -73,11 +73,19 @@ a:hover {
   color: blue;
 }
 .menu-deco {
-  font-size: 1.3rem;
-  font-family: "Krungthep", monospace;
-  line-height: .9;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   user-select: none;
   pointer-events: none;
+}
+.menu-deco img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  display: block;
 }
 .menu {
   display: flex;
@@ -355,7 +363,7 @@ a:hover {
     height: 30px;
   }
   .menu-icon::before {
-    content: "â?¸";
+    content: "Ã¢?Â¸";
     font-size: 1.4rem;
     margin-right: 10px;
     line-height: 1;
