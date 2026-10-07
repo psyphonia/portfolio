@@ -73,19 +73,11 @@ a:hover {
   color: blue;
 }
 .menu-deco {
-  width: 18px;
-  height: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 1.3rem;
+  font-family: "Krungthep", monospace;
+  line-height: .9;
   user-select: none;
   pointer-events: none;
-}
-.menu-deco img {
-  width: 18px;
-  height: 18px;
-  object-fit: contain;
-  display: block;
 }
 .menu {
   display: flex;
