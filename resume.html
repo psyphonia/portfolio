@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>resume.txt &bull; devansh gandotra neog</title>
+<title>Devansh Gandotra Neog &bull; Curriculum Vitae</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/x-icon" href="images/home.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata" />
@@ -13,7 +13,7 @@
     padding-top: 2rem;
   }
   .resume-window {
-    max-width: 780px;
+    max-width: 800px;
     margin: 2rem auto;
     background: #ffffff;
     border: 2px solid #000000;
@@ -21,7 +21,7 @@
     font-family: "Inconsolata", monospace;
   }
   .resume-content {
-    padding: 24px 28px;
+    padding: 28px 32px;
     font-size: 0.95rem;
     line-height: 1.6;
     color: #000000;
@@ -29,41 +29,52 @@
   .resume-header {
     border-bottom: 2px solid #000000;
     padding-bottom: 12px;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
+    text-align: center;
   }
   .resume-title {
-    font-size: 1.6rem;
+    font-size: 1.85rem;
     font-weight: bold;
     margin: 0;
   }
-  .resume-sub {
-    font-size: 1rem;
-    color: #333333;
-    margin-top: 4px;
+  .resume-contact-bar {
+    font-size: 0.95rem;
+    margin-top: 6px;
   }
   .resume-section {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
   }
   .resume-section-title {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-weight: bold;
-    border-bottom: 1px solid #000000;
-    padding-bottom: 4px;
-    margin-bottom: 8px;
+    border-bottom: 1.5px solid #000000;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
-  .resume-entry-head {
+  .resume-item-head {
     display: flex;
     justify-content: space-between;
     font-weight: bold;
-    margin-top: 8px;
+    font-size: 0.98rem;
   }
-  .resume-entry-sub {
+  .resume-item-sub {
+    display: flex;
+    justify-content: space-between;
     font-style: italic;
-    color: #444444;
+    font-size: 0.92rem;
+    margin-bottom: 3px;
+  }
+  .resume-bullets {
+    margin: 4px 0 10px 0;
+    padding-left: 20px;
+  }
+  .resume-bullets li {
+    margin-bottom: 3px;
   }
   .btn-print {
-    padding: 4px 10px;
+    padding: 4px 12px;
     background: #eeeeee;
     border: 1px solid #000000;
     cursor: pointer;
@@ -75,9 +86,10 @@
     color: #ffffff;
   }
   @media print {
-    body { background: #ffffff !important; }
+    body { background: #ffffff !important; padding: 0 !important; }
     .header, .btn-print, .close, .resize { display: none !important; }
     .resume-window { border: none !important; box-shadow: none !important; margin: 0 !important; width: 100% !important; }
+    .resume-content { padding: 0 !important; font-size: 11pt !important; }
   }
 </style>
 </head>
@@ -88,8 +100,8 @@
   <label for="menu-toggle" class="menu-icon"> <span class="menu-text">menu</span> </label>
   <ul class="menu">
     <li class="menu-deco">&#127744;</li>
-    <li><a href="index.html">&larr; Return to Desktop</a></li>
-    <li><a href="javascript:window.print()">[Print / PDF]</a></li>
+    <li><a href="index.html">&larr; Return to Workstation Desktop</a></li>
+    <li><a href="javascript:window.print()">[Print / Save PDF]</a></li>
   </ul>
 </header>
 
@@ -102,70 +114,153 @@
   <div class="separator"></div>
 
   <div class="resume-content">
+    
+    <!-- Header -->
     <div class="resume-header">
-      <div style="display: flex; justify-content: space-between; align-items: baseline;">
-        <h1 class="resume-title">Devansh Gandotra Neog</h1>
-        <button class="btn-print" onclick="window.print()">Print / Save PDF</button>
+      <h1 class="resume-title">Devansh Gandotra Neog</h1>
+      <div class="resume-contact-bar">
+        Mumbai, MH &bull; 
+        <a href="mailto:devanshgneog@gmail.com">devanshgneog@gmail.com</a> &bull; 
+        <a href="https://github.com/psyphonia" target="_blank">github.com/psyphonia</a>
       </div>
-      <div class="resume-sub">AI Student &amp; Developer &bull; The University of Western Australia &bull; Perth, WA</div>
-      <div style="margin-top: 6px; font-size: 0.88rem;">
-        Email: <a href="mailto:devanshgandotra@gmail.com">devanshgandotra@gmail.com</a> &bull;
-        GitHub: <a href="https://github.com/devansh-neog" target="_blank">github.com/devansh-neog</a> &bull;
-        LinkedIn: <a href="https://linkedin.com/in/devansh-neog" target="_blank">linkedin.com/in/devansh-neog</a>
+      <div style="margin-top: 8px;">
+        <button class="btn-print" onclick="window.print()">Print / Save PDF</button>
       </div>
     </div>
 
     <!-- Education -->
     <div class="resume-section">
       <div class="resume-section-title">Education</div>
-      <div class="resume-entry-head">
-        <span>The University of Western Australia (UWA)</span>
-        <span>Present</span>
+
+      <div>
+        <div class="resume-item-head">
+          <span>G.D. Goenka Global School</span>
+          <span>Noida, UP</span>
+        </div>
+        <div class="resume-item-sub">
+          <span>CBSE Grade 12 &mdash; Physics, Chemistry and Mathematics</span>
+          <span>2020 &ndash; 2026</span>
+        </div>
+        <div><strong>Academic Distinction:</strong> 95.8% in Grade 12; IOQM Qualified</div>
+        <div><strong>Activities:</strong> Authored three books; piano performance; journalism; athletics; performance arts; group project on spontaneous synchronisation; Tesla coil project; market survey on quick commerce</div>
       </div>
-      <div class="resume-entry-sub">Bachelor of Science &mdash; Artificial Intelligence &amp; Computer Science</div>
-      <p style="margin-top: 4px;">Coursework in Algorithms, Machine Learning Foundations, Data Structures, Discrete Mathematics, Linear Algebra.</p>
 
-      <div class="resume-entry-head">
-        <span>Senior Secondary School (Grade 12)</span>
-        <span>95.8% Aggregate Score</span>
+      <div style="margin-top: 14px;">
+        <div class="resume-item-head">
+          <span>Global Indian International School</span>
+          <span>Noida, UP</span>
+        </div>
+        <div class="resume-item-sub">
+          <span>Grades 3&ndash;6</span>
+          <span>2016 &ndash; 2020</span>
+        </div>
+        <div><strong>Activities:</strong> Piano; literature and writing; athletics, including 100m races and skating; STEAM projects and extracurricular competitions</div>
       </div>
-      <div class="resume-entry-sub">Science &amp; Mathematics Stream (Distinction)</div>
 
-      <div class="resume-entry-head">
-        <span>Secondary School (Grade 10)</span>
-        <span>94.8% Aggregate Score</span>
+      <div style="margin-top: 14px;">
+        <div class="resume-item-head">
+          <span>PM SHRI Kendriya Vidyalaya AFS Mohanbari</span>
+          <span>Dibrugarh, Assam</span>
+        </div>
+        <div class="resume-item-sub">
+          <span>Grades 1&ndash;2</span>
+          <span>2014 &ndash; 2016</span>
+        </div>
+        <div><strong>Activities:</strong> Extracurricular activities and academic olympiads</div>
       </div>
-    </div>
-
-    <!-- Honors -->
-    <div class="resume-section">
-      <div class="resume-section-title">Honors &amp; Achievements</div>
-      <p>&bull; <strong>Indian Olympiad Qualifier in Mathematics (IOQM):</strong> Qualified the national Olympiad examination testing number theory, combinatorics, and geometry.</p>
-      <p>&bull; <strong>Tesla Coil Competition &mdash; 1st Place:</strong> Engineered and tuned a working high-voltage resonant transformer; modeled LC resonant circuits.</p>
-      <p>&bull; <strong>Authored Three Published Books:</strong> Conceived, wrote, and published three books across narrative fiction and thematic works.</p>
-    </div>
-
-    <!-- Technical Projects -->
-    <div class="resume-section">
-      <div class="resume-section-title">Selected Projects</div>
-      <p><strong>1. MicroAutograd Engine &amp; Neural Library (Python, NumPy):</strong> Built reverse-mode automatic differentiation engine from scratch. Implemented computational DAG traversal, topological sorting, and backprop for training MLPs.</p>
-      <p><strong>2. Autonomous Reasoning AI Agent (Python, AsyncIO, LLM APIs):</strong> Multi-step autonomous system with chain-of-thought scratchpad, schema-validated tool calling, and error backtracking.</p>
-      <p><strong>3. Graph Search Algorithmic Engine (Python, C++):</strong> Benchmarked Dijkstra, A*, and Bidirectional BFS with space-time complexity analysis.</p>
-      <p><strong>4. Minimax Adversarial Game Engine (Python):</strong> Deterministic two-player game engine using Minimax with Alpha-Beta pruning and transposition caching.</p>
-      <p><strong>5. Electromagnetic Resonance Simulator (Python, SciPy):</strong> Modeled secondary coil self-capacitance (Medhurst formula) and spark gap discharge dynamics.</p>
     </div>
 
     <!-- Technical Skills -->
     <div class="resume-section">
       <div class="resume-section-title">Technical Skills</div>
-      <p><strong>Languages:</strong> Python, C, C++, JavaScript, SQL, HTML5, CSS3</p>
-      <p><strong>Core Topics:</strong> Data Structures &amp; Algorithms, Linear Algebra, Multivariable Calculus, Reverse-Mode Autograd</p>
-      <p><strong>Tools:</strong> Git, GitHub, Linux/Unix CLI, VS Code, NumPy, PyTorch, LaTeX</p>
+      <div><strong>Languages:</strong> Python</div>
+      <div><strong>Tools:</strong> Git, Hugging Face Spaces</div>
+      <div><strong>Courses:</strong> Harvard CS50P: Introduction to Programming with Python</div>
     </div>
 
-    <div style="border-top: 1px dashed #888888; padding-top: 10px; font-size: 0.8rem; color: #555555;">
-      [EOF] Devansh Gandotra Neog &bull; <a href="index.html">&larr; Return to Workstation Desktop</a>
+    <!-- Projects -->
+    <div class="resume-section">
+      <div class="resume-section-title">Projects</div>
+
+      <div>
+        <div class="resume-item-head">
+          <span>LeetCode Coach | Hugging Face Spaces</span>
+          <span>Personal Project (2026)</span>
+        </div>
+        <ul class="resume-bullets">
+          <li>Built and deployed an AI-powered coding coach that analyses a LeetCode attempt and gives progressive hints, debugging guidance, and an estimate of time complexity and the underlying DSA pattern.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="resume-item-head">
+          <span>Pigeon-Feeding Hotspot Detection | Computer Vision</span>
+          <span>Ongoing Project</span>
+        </div>
+        <ul class="resume-bullets">
+          <li>Building a computer vision system to detect vehicles stopping near known pigeon-feeding spots, using stopping patterns to flag locations with concentrated feeding, to support efforts against pigeon overpopulation and related respiratory risks.</li>
+        </ul>
+      </div>
     </div>
+
+    <!-- Academic Achievements -->
+    <div class="resume-section">
+      <div class="resume-section-title">Academic Achievements</div>
+
+      <div>
+        <div class="resume-item-head">
+          <span>Indian Olympiad Qualifier in Mathematics (IOQM)</span>
+          <span>2024</span>
+        </div>
+        <ul class="resume-bullets">
+          <li>Qualified for the next stage, the Regional Mathematical Olympiad (RMO).</li>
+        </ul>
+      </div>
+
+      <div class="resume-item-head" style="margin-top: 4px;">
+        <span>CBSE Grade 12: 95.8%, 2nd in school</span>
+        <span>2026</span>
+      </div>
+
+      <div class="resume-item-head" style="margin-top: 4px;">
+        <span>CBSE Grade 10: 94.8%</span>
+        <span>2024</span>
+      </div>
+    </div>
+
+    <!-- Community Service -->
+    <div class="resume-section">
+      <div class="resume-section-title">Community Service</div>
+      <div class="resume-item-head">
+        <span>KiranPrakash Social Welfare Foundation</span>
+        <span>2023 &ndash; 2026</span>
+      </div>
+      <ul class="resume-bullets">
+        <li>Volunteered in educational initiatives for underprivileged children and women.</li>
+      </ul>
+    </div>
+
+    <!-- Publications -->
+    <div class="resume-section">
+      <div class="resume-section-title">Publications</div>
+      <div class="resume-item-head">
+        <span>Star Born: New Star Is Born</span>
+        <span>2018</span>
+      </div>
+      <div class="resume-item-head" style="margin-top: 4px;">
+        <span>The War of The Sentii</span>
+        <span>2020</span>
+      </div>
+      <div class="resume-item-head" style="margin-top: 4px;">
+        <span>Ancestral Desolation: A Guide to Pixilism</span>
+        <span>2023</span>
+      </div>
+    </div>
+
+    <div style="border-top: 1px dashed #888888; padding-top: 12px; font-size: 0.85rem; color: #555555; text-align: center;">
+      [End of CV] Devansh Gandotra Neog &bull; <a href="index.html">&larr; Return to Workstation Desktop</a>
+    </div>
+
   </div>
 </div>
 
